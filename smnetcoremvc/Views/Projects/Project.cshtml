@@ -1,0 +1,76 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model smnetcoremvc.Models.Project
+
+@{
+    ViewData["Title"] = "Страница проекта";
+}
+
+<!-- ======= Breadcrumbs ======= -->
+<section id="breadcrumbs" class="breadcrumbs ">
+    <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center mt-3">
+            <h2>Страница проекта</h2>
+            <ol>
+                <li><a asp-area="" asp-controller="Home" asp-action="Index">Главная</a></li>
+                <li>Страница проекта</li>
+            </ol>
+        </div>
+
+    </div>
+</section>
+<!-- End Breadcrumbs -->
+
+<!-- ======= Portfolio Details Section ======= -->
+<section id="portfolio-details" class="portfolio-details mt-5">
+    <div class="container">
+
+        @*<div class="section-title">
+            <h2>Страница проекта</h2>
+        </div>*@
+
+        <div class="row gy-4">
+
+            <div class="col-lg-8">
+                <div class="portfolio-details-slider swiper">
+                    <div class="swiper-wrapper align-items-center">
+
+                        <div class="swiper-slide">
+                            <img src="~/img/projects-jpg/@(Html.DisplayFor(model => model.Images))1.jpg" alt="">
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="~/img/projects-jpg/@(Html.DisplayFor(model => model.Images))2.jpg" alt="">
+                        </div>
+
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="portfolio-info">
+                    <h3>@Html.DisplayNameFor(model => model.Name)</h3>
+                    <ul>
+                        <li><strong>Категория</strong>: @Html.DisplayFor(model => model.Slug)</li>
+                        <li><strong>Заказчик</strong>: @Html.DisplayFor(model => model.Client)</li>
+                        <li><strong>Должность</strong>: @Html.DisplayFor(model => model.Spec)</li>
+                        <li><strong>Период</strong>: @Html.DisplayFor(model => model.Period)</li>
+                        <li><strong>Сайт проекта</strong>: <a href="@Html.DisplayFor(model => model.Siteurl)" target="_blank">@Html.DisplayFor(model => model.Siteurl)</a></li>
+                    </ul>
+                </div>
+                <div class="portfolio-description">
+                    <h2>Описание проекта</h2>
+                    <p>
+                        @Html.DisplayFor(model => model.Description)
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section><!-- End Portfolio Details Section -->
